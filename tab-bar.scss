@@ -1,0 +1,70 @@
+.es-tab-bar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  .es-tab {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: auto;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    background-color: transparent;
+    cursor: pointer;
+    transform: translateZ(0);
+    -webkit-tap-highlight-color: transparent;
+    border: 0;
+    padding: 0;
+    .es-ripple-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      .es-ripple-wave {
+        display: block;
+        position: absolute;
+        background-color: var(--tab-color, #610bf0);
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0.2;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+        will-change: transform, opacity;
+        pointer-events: none;
+      }
+      .es-ripple-wave-held {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      .es-ripple-wave-done {
+        opacity: 0;
+      }
+    }
+  }
+  .es-tab__active {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--tab-color, #610bf0);
+    &.es-tab__active_transition {
+      transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+  }
+  &.es-scroll {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    .es-tab {
+      flex: none;
+      padding: 0 20px;
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
