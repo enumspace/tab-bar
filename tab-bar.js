@@ -31,18 +31,18 @@ window.addEventListener("load", function () {
     document.addEventListener(releaseEvent, release);
   }
   this.document.querySelectorAll(".es-tab").forEach((el) => {
-    // Create a ripple container
+    // 创建涟漪容器
     let rippleContainer = el.querySelector(".es-ripple-container");
     if (!rippleContainer) {
       rippleContainer = document.createElement("div");
       rippleContainer.className = "es-ripple-container";
       el.appendChild(rippleContainer);
     }
-    // PC
+    // 电脑端
     rippleContainer.addEventListener("mousedown", function (e) {
       startRipple(e.type, e);
     }, { passive: true });
-    // Mobile
+    // 移动端
     rippleContainer.addEventListener("touchstart", function (e) {
       [].slice.call(e.changedTouches).forEach(touch => {
         startRipple(e.type, touch);

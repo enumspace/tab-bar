@@ -54,6 +54,7 @@
     background-color: var(--tab-color, #610bf0);
     &.es-tab__active_transition {
       transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+      will-change: width, transform;
     }
   }
   &.es-scroll {
